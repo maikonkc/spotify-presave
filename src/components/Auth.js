@@ -11,19 +11,47 @@ const scopes = [
 // Montando a URL de autenticação com os escopos corretos
 const SPOTIFY_AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&response_type=token&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&scope=${scopes.join('%20')}&show_dialog=true`;
 
-
 const Auth = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Nome:', name, 'E-mail:', email);
-    alert('Informações capturadas com sucesso!');
+  const [mensagem, setMensagem] = useState('');
 
-    // Aqui você pode enviar `name` e `email` para um backend
-    setName('');
-    setEmail('');
-    window.location.href = SPOTIFY_AUTH_URL;
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const data = { name, email };
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzD-dhfV96sJImt1RAkZ1QQ_U3s9AnN2YpwGrLmA4kCd_NTS4nobl8nw2cBaDXfkynfTg/exec", // Substitua pela sua URL
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "cors", // Habilita suporte a CORS
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        setMensagem("Dados enviados com sucesso!");
+        setName('');
+        setEmail('');
+        window.location.href = SPOTIFY_AUTH_URL;
+      } else {
+        setMensagem(result.message || "Erro ao enviar os dados.");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar:", error);
+      setMensagem("Erro ao enviar os dados. Verifique a conexão e tente novamente.");
+    }
   };
 
   return (
@@ -31,7 +59,7 @@ const Auth = () => {
       <div style={styles.container}>
         <h1 style={styles.heading}>Faça o Pré-save da Minha Música!</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
-        <form onSubmit={handleLogin} style={styles.form}>
+        <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <input
             type="text"
             placeholder="Seu Nome"
@@ -50,6 +78,7 @@ const Auth = () => {
           />
           <button type="submit" style={styles.button}>Conectar ao Spotify</button>
         </form>
+        {mensagem && <p>{mensagem}</p>}
       </div>
     </div>
   );
@@ -99,4 +128,5 @@ const styles = {
     fontWeight: 'bold',
   },
 };
+
 export default Auth;
