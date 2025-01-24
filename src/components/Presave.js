@@ -61,14 +61,18 @@ const Presave = ({ token }) => {
         alert('Falha ao seguir o artista.');
       }
   };
-
+  useEffect(() => {
+    saveRelease();
+  }, []);
   return (
     <div>
-      <h2>Presave Disponível!</h2>
-      <button onClick={saveRelease} disabled={isSaved}>
+    <h1>Salvando o Álbum...</h1>
+    {/* Opcional: Adicione feedback visual */}
+    <p>Estamos salvando o álbum na sua biblioteca do Spotify. Aguarde um momento!</p>
+    <button disabled={isSaved}>
         {isSaved ? "Pré-Save Concluído" : "Fazer Pré-Save"}
-      </button>
-    </div>
+    </button>
+  </div>
     
   );
 };
