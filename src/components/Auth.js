@@ -21,36 +21,31 @@ const Auth = () => {
 
     const data = { name, email };
 
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzD-dhfV96sJImt1RAkZ1QQ_U3s9AnN2YpwGrLmA4kCd_NTS4nobl8nw2cBaDXfkynfTg/exec", // Substitua pela sua URL
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          mode: "no-cors", // Habilita suporte a CORS
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (!response.ok) {
-        /*throw new Error(`HTTP error! Status: ${response.status}`);*/
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzD-dhfV96sJImt1RAkZ1QQ_U3s9AnN2YpwGrLmA4kCd_NTS4nobl8nw2cBaDXfkynfTg/exec", // Substitua pela sua URL
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Habilita suporte a CORS
+        body: JSON.stringify(data),
       }
+    );
 
-      const result = await response.json();
+    if (!response.ok) {
+      /*throw new Error(`HTTP error! Status: ${response.status}`);*/
+    }
 
-      if (result.status === "success") {
-        setMensagem("Dados enviados com sucesso!");
-        setName('');
-        setEmail('');
-        window.location.href = SPOTIFY_AUTH_URL;
-      } else {
-        setMensagem(result.message || "Erro ao enviar os dados.");
-      }
-    } catch (error) {
-      console.error("Erro ao enviar:", error);
-      setMensagem("Erro ao enviar os dados. Verifique a conexão e tente novamente.");
+    const result = await response.json();
+
+    if (result.status === "success") {
+      setMensagem("Dados enviados com sucesso!");
+      setName('');
+      setEmail('');
+      window.location.href = SPOTIFY_AUTH_URL;
+    } else {
+      setMensagem(result.message || "Erro ao enviar os dados.");
     }
   };
 
