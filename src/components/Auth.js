@@ -29,7 +29,7 @@ const Auth = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          mode: "cors", // Habilita suporte a CORS
+          mode: "no-cors", // Habilita suporte a CORS
           body: JSON.stringify(data),
         }
       );
