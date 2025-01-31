@@ -18,34 +18,40 @@ const Auth = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     const data = { name, email };
-
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzD-dhfV96sJImt1RAkZ1QQ_U3s9AnN2YpwGrLmA4kCd_NTS4nobl8nw2cBaDXfkynfTg/exec", // Substitua pela sua URL
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors", // Habilita suporte a CORS
-        body: JSON.stringify(data),
+  
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzD-dhfV96sJImt1RAkZ1QQ_U3s9AnN2YpwGrLmA4kCd_NTS4nobl8nw2cBaDXfkynfTg/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // mode: "cors"  <--  Remova ou deixe implícito (é o padrão)
+          body: JSON.stringify(data),
+        }
+      );
+  
+      if (!response.ok) {
+        const errorText = await response.text(); // Tente obter o texto do erro
+        throw new Error(`HTTP error! Status: ${response.status}, ${errorText}`);
       }
-    );
-
-    if (!response.ok) {
-      /*throw new Error(`HTTP error! Status: ${response.status}`);*/
-    }
-
-    const result = await response.json();
-
-    if (result.status === "success") {
-      setMensagem("Dados enviados com sucesso!");
-      setName('');
-      setEmail('');
-      window.location.href = SPOTIFY_AUTH_URL;
-    } else {
-      setMensagem(result.message || "Erro ao enviar os dados.");
+  
+      const result = await response.json();
+  
+      if (result.status === "success") {
+        setMensagem("Dados enviados com sucesso!");
+        setName('');
+        setEmail('');
+        window.location.href = SPOTIFY_AUTH_URL;
+      } else {
+        setMensagem(result.message || "Erro ao enviar os dados.");
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error); // Log do erro para depuração
+      setMensagem("Ocorreu um erro ao enviar os dados. Tente novamente mais tarde.");
     }
   };
 
