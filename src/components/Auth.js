@@ -60,7 +60,12 @@ const Auth = () => {
         <h1 style={styles.heading}>Faça o Pré-save da Minha Música!</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
+          <label htmlFor="nome" style={styles.label}>
+            Nome:
+          </label>
           <input
+            id="nome"
+            name="nome"
             type="text"
             placeholder="Seu Nome"
             value={name}
@@ -68,7 +73,13 @@ const Auth = () => {
             required
             style={styles.input}
           />
+          
+          <label htmlFor="email" style={styles.label}>
+            E-mail:
+          </label>
           <input
+            id="email"
+            name="email"
             type="email"
             placeholder="Seu E-mail"
             value={email}
@@ -76,8 +87,10 @@ const Auth = () => {
             required
             style={styles.input}
           />
+          
           <button type="submit" style={styles.button}>Conectar ao Spotify</button>
         </form>
+
         {mensagem && <p>{mensagem}</p>}
       </div>
     </div>
