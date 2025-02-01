@@ -67,7 +67,8 @@ const Presave = ({ token }) => {
     <div>
       <h1>Pré-save do Spotify</h1>
       {isSaved === null && <p>Estamos salvando o álbum na sua biblioteca. Aguarde...</p>}
-      {isSaved === true && <p>Álbum salvo com sucesso! Você pode conferir na sua biblioteca do Spotify na data do lançamento.</p>}
+      {isSaved === true && <p>Álbum salvo com sucesso! Você pode conferir na sua biblioteca do Spotify na data do lançamento.<br>
+                              Compartilhe com seus amigos!</br></p>}
       {isSaved === false && <p>Falha ao salvar o álbum. Por favor, tente novamente mais tarde.</p>}
     </div>
     
