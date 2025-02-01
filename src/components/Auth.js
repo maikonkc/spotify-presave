@@ -28,7 +28,7 @@ const Auth = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          mode: "no-cors"  //<--  Remova ou deixe implícito (é o padrão)
+          mode: "no-cors",  //<--  Remova ou deixe implícito (é o padrão)
           body: JSON.stringify({
             name: name,
             email: email,
