@@ -30,16 +30,36 @@ const Auth = () => {
             "Content-Type": "application/json",
           },
           // mode: "cors"  <--  Remova ou deixe implícito (é o padrão)
-          body: JSON.stringify(data),
+          body: JSON.stringify({
+            name: name,
+            email: email,
+          }),
         }
       );
   
+       // Check if the response was successful
       if (!response.ok) {
-        const errorText = await response.text(); // Tente obter o texto do erro
-        throw new Error(`HTTP error! Status: ${response.status}, ${errorText}`);
+        //Try to read the body error if there is one
+        const errorText = await response.text();
+        throw new Error(`HTTP error! Status: ${response.status} Response: ${errorText}`);
       }
-  
-      const result = await response.json();
+
+      // Check if the response has content
+      const responseText = await response.text();
+      if (!responseText) {
+        throw new Error("Empty response received from the server.");
+      }
+
+      // Check if the response is valid JSON
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (jsonError) {
+        console.error("Invalid JSON received:", responseText);
+        throw new Error(
+          "Invalid JSON response from the server.",
+        );
+      }
   
       if (result.status === "success") {
         setMensagem("Dados enviados com sucesso!");
