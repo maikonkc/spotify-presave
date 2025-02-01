@@ -35,13 +35,6 @@ const Auth = () => {
           }),
         }
       );
-  
-       // Check if the response was successful
-      if (!response.ok) {
-        //Try to read the body error if there is one
-        const errorText = await response.text();
-        throw new Error(`HTTP error! Status: ${response.status} Response: ${errorText}`);
-      }
 
       // Check if the response has content
       const responseText = await response.text();
@@ -77,7 +70,7 @@ const Auth = () => {
   return (
     <div>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.4)</h1>
+        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.5)</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <label htmlFor="nome" style={styles.label}></label>
