@@ -6,9 +6,8 @@ const Presave = ({ token }) => {
   const [isSaved, setIsSaved] = useState(false);
   const saveRelease = async () => {
     const albumId = '0Aew4M8q8LSJ5xdZiwErDw'; // A Noite N Acabou
-    //const albumId = '122yRf2xz5FT2ua5Vbv3tp'; // Substitua pelo ID real da música. Essa é de teste.
-    const playlistId ='5CVbi440q7OBWulf30Wf10';
-    const artistId = '22wbnEMDvgVIAGdFeek6ET';
+    const playlistId ='5rnWjb5X62L6Jf2I4T9jfw'; //Darkcore
+    const artistId = '22M8dOOCCGRbjgc26XVmdV'; // Mike Keslley
     try {
       
       const response = await axios.put(
@@ -21,12 +20,12 @@ const Presave = ({ token }) => {
         }
       );
       setIsSaved(true); // Desabilita o botão
-      alert('Álbum salvo na biblioteca com sucesso!');
-      console.log("Resposta da API:", response); // Deve ser 200 ou 204.
+      //alert('Álbum salvo na biblioteca com sucesso!');
+      console.log("Album salvo:", response); // Deve ser 200 ou 204.
 
     } catch (error) {
       console.error('Erro ao salvar  o álbum:', error);
-      alert('Falha ao salvar o álbum.');
+      //alert('Falha ao salvar o álbum.');
     }
     try {
         const response = await axios.put(
@@ -39,10 +38,10 @@ const Presave = ({ token }) => {
           }
         );
         console.log("Playlist salva:", response);
-        alert('Playlist salva com sucesso!');
+        //alert('Playlist salva com sucesso!');
       } catch (error) {
         console.error("Erro ao salvar a playlist:", error.response || error.message);
-        alert('Falha ao salvar a playlist.');
+        //alert('Falha ao salvar a playlist.');
       }
     try {
         const response = await axios.put(
@@ -55,10 +54,10 @@ const Presave = ({ token }) => {
           }
         );
         console.log("Artista seguido:", response);
-        alert('Artista seguido com sucesso!');
+        //alert('Artista seguido com sucesso!');
       } catch (error) {
         console.error("Erro ao seguir o artista:", error.response || error.message);
-        alert('Falha ao seguir o artista.');
+        //alert('Falha ao seguir o artista.');
       }
   };
   useEffect(() => {
