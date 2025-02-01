@@ -35,7 +35,7 @@ const Auth = () => {
           }),
         }
       );
-      console.log(response)
+      console.log(response);
 
       const data = await response.json();
       console.log(data.status);
