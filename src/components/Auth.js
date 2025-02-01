@@ -34,9 +34,7 @@ const Auth = () => {
         }),
       }
     );
-    const data = await response.json();
-    console.log(data);
-    console.log(data.status);
+    
     setMensagem('Dados enviados com sucesso!');
     setName('');
     setEmail('');
@@ -46,7 +44,7 @@ const Auth = () => {
   return (
     <div>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.13)</h1>
+        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.14)</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <label htmlFor="nome" style={styles.label}></label>
