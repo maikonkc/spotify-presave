@@ -22,7 +22,7 @@ const Auth = () => {
     //const data = { name, email };
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzs1z9STL4R2Fby4xuQzCqXbfP25O7xfax5-NmVYxTUFF6gZ70nF_3KvkaCd0io83hMWQ/exec",
+        "https://script.google.com/macros/s/AKfycbznOxXSKlZz8uMhehcpyNbzBUKY4Q2u75AWfMX9ZzvLkgISqspQnzvoEbLYdc81QBU/exec",
         {
           method: "POST",
           headers: {
@@ -37,7 +37,7 @@ const Auth = () => {
       );
       console.log(response);
 
-      const data = response.json();
+      const data = await response.json();
       console.log(data.status);
       if (data.status === 'success') {
         setMensagem('Dados enviados com sucesso!');
@@ -56,7 +56,7 @@ const Auth = () => {
   return (
     <div>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.10)</h1>
+        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.11)</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <label htmlFor="nome" style={styles.label}></label>
