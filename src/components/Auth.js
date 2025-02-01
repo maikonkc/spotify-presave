@@ -24,7 +24,7 @@ const Auth = () => {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbzs1z9STL4R2Fby4xuQzCqXbfP25O7xfax5-NmVYxTUFF6gZ70nF_3KvkaCd0io83hMWQ/exec",
         {
-          method: "POST",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
