@@ -20,7 +20,7 @@ const Auth = () => {
     e.preventDefault();
   
     const data = { name, email };
-  
+    console.log("versão 1.1")
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwkvjWvxY6tF7NdkNGaD-lHkCsufvy1JMtsXOWe8X04II2knyA1hu6dRx_wJ447Hg1m_A/exec",
