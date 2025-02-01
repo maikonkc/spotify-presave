@@ -35,7 +35,7 @@ const Auth = () => {
       }
     );
     
-    setMensagem('Dados enviados com sucesso!');
+    setMensagem('Dados enviados com sucesso! Redirecionando...');
     setName('');
     setEmail('');
     window.location.href = SPOTIFY_AUTH_URL;   
