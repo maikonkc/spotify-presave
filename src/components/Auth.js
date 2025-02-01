@@ -28,7 +28,7 @@ const Auth = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          // mode: "no-cors",  //<--  Remova ou deixe implícito (é o padrão)
+          mode: "no-cors",  //<--  Remova ou deixe implícito (é o padrão)
           body: JSON.stringify({
             name: name,
             email: email,
@@ -70,7 +70,7 @@ const Auth = () => {
   return (
     <div>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.7)</h1>
+        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.8)</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <label htmlFor="nome" style={styles.label}></label>
