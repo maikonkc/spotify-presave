@@ -23,7 +23,7 @@ const Auth = () => {
   
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwCOp3zEtCKnsKUaLsUC1byzU3l4oeT5WGRjinuVVlyp-yaHwO-TyqJ9ciTi1UAfmRQOQ/exec",
+        "https://script.google.com/macros/s/AKfycbwkvjWvxY6tF7NdkNGaD-lHkCsufvy1JMtsXOWe8X04II2knyA1hu6dRx_wJ447Hg1m_A/exec",
         {
           method: "POST",
           headers: {
