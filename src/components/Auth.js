@@ -19,7 +19,7 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
   
-    const data = { name, email };
+    //const data = { name, email };
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbzs1z9STL4R2Fby4xuQzCqXbfP25O7xfax5-NmVYxTUFF6gZ70nF_3KvkaCd0io83hMWQ/exec",
@@ -36,41 +36,27 @@ const Auth = () => {
         }
       );
       console.log(response)
-      // Check if the response has content
-      const responseText = await response.text();
-      if (!responseText) {
-        throw new Error("Empty response received from the server.");
-      }
 
-      // Check if the response is valid JSON
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (jsonError) {
-        console.error("Invalid JSON received:", responseText);
-        throw new Error(
-          "Invalid JSON response from the server.",
-        );
-      }
-  
-      if (result.status === "success") {
-        setMensagem("Dados enviados com sucesso!");
+      const data = await response.json();
+      console.log(data.status);
+      if (data.status === 'success') {
+        setMensagem('Dados enviados com sucesso!');
         setName('');
         setEmail('');
         window.location.href = SPOTIFY_AUTH_URL;
       } else {
-        setMensagem(result.message || "Erro ao enviar os dados.");
+        setMensagem('Erro ao enviar os dados.');
       }
     } catch (error) {
-      console.error("Erro na requisição:", error); // Log do erro para depuração
-      setMensagem("Ocorreu um erro ao enviar os dados. Tente novamente mais tarde.");
-    }
+      setMensagem('Erro ao enviar os dados.');
+      console.error('Erro:', error);
+    }    
   };
 
   return (
     <div>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.8)</h1>
+        <h1 style={styles.heading}>Faça o Pré-save da Minha Música! (versão 1.9)</h1>
         <p style={styles.subheading}>Deixe seu nome e e-mail para receber novidades exclusivas.</p>
         <form id="cadastro" onSubmit={handleLogin} style={styles.form}>
           <label htmlFor="nome" style={styles.label}></label>
