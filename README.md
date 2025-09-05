@@ -1,3 +1,46 @@
+# 🎵 Spotify Presave & Follow (React + Google Sheets)
+
+Projeto pessoal desenvolvido com **React** para o **frontend**, integrado à **API do Spotify** e à **API do Google Sheets**.  
+O sistema permite que usuários façam **pré-save de lançamentos musicais**, **sigam artistas automaticamente** e que os dados de interação sejam **registrados em tempo real no Google Planilhas**.  
+
+Este projeto foi pensado como um **case de portfólio** para demonstrar minhas habilidades em **desenvolvimento web moderno** com **React** e integrações de APIs.
+
+[![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)](https://react.dev/)  
+[![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)](https://nodejs.org/)  
+[![Spotify](https://img.shields.io/badge/API-Spotify-1DB954?logo=spotify&logoColor=white)](https://developer.spotify.com/documentation/web-api/)  
+[![Google Sheets](https://img.shields.io/badge/API-Google%20Sheets-34A853?logo=google&logoColor=white)](https://developers.google.com/sheets/api)  
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?logo=mongodb&logoColor=white)](https://www.mongodb.com/)  
+
+---
+
+## 🚀 Funcionalidades
+
+- 🔗 Login via OAuth (Spotify)  
+- 💾 Pré-save de músicas e álbuns futuros  
+- ⭐ Seguir automaticamente artistas  
+- 📊 Registro de interações em **Google Sheets**  
+- ⚡ Interface dinâmica e responsiva construída com **React**
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- **Frontend:**  
+  - ⚛️ React (Hooks + Context API)  
+  - CSS  
+
+- **Backend:**  
+  - Node.js
+
+- **APIs Integradas:**  
+  - Spotify Web API (OAuth 2.0)  
+  - Google Sheets API  
+
+- **Banco de Dados:** MongoDB  
+- **Outros:** Axios, dotenv  
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
