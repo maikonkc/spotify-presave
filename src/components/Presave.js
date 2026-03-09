@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Presave = ({ token }) => {
   console.log("Token recebido:", token);
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(null);
   const saveRelease = async () => {
     const albumId = '0Aew4M8q8LSJ5xdZiwErDw'; // A Noite N Acabou
     const playlistId ='5rnWjb5X62L6Jf2I4T9jfw'; //Darkcore
