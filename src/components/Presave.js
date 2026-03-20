@@ -63,9 +63,27 @@ const Presave = ({ token, config }) => {
   const allSuccess = Object.values(status).every(s => s === 'success');
   const hasError = Object.values(status).some(s => s === 'error');
 
+  const formatarData = (dataISO) => {
+    if (!dataISO) return "";
+    
+    try {
+      const data = new Date(dataISO);
+      // Verifica se a data é válida antes de formatar
+      if (isNaN(data.getTime())) return dataISO; 
+
+      return data.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    } catch (e) {
+      return dataISO; // Se der erro, mostra o original para não quebrar a tela
+    }
+  };
+
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}>🎵 Presave Confirmado!</h1>
+      <h1 style={styles.heading}>Presave Confirmado!</h1>
       <h2 style={styles.subtitle}>
         "{config?.titulo}" — {config?.subtitulo}
       </h2>
@@ -79,7 +97,7 @@ const Presave = ({ token, config }) => {
       {allSuccess && (
         <div style={styles.successBox}>
           <p>{config?.mensagemSucesso || 'Tudo pronto! O álbum será adicionado à sua biblioteca no lançamento.'}</p>
-          <p style={styles.releaseDate}>📅 Lançamento: {config?.dataLancamento}</p>
+          <p style={styles.releaseDate}>Lançamento: {formatarData(config?.dataLancamento)}</p>
           <button 
             onClick={() => window.open(`https://open.spotify.com/album/${config?.albumId}`, '_blank')}
             style={styles.spotifyButton}

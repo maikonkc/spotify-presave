@@ -42,6 +42,24 @@ const Auth = ({ config }) => {
     }
   };
 
+  const formatarData = (dataISO) => {
+    if (!dataISO) return "";
+    
+    try {
+      const data = new Date(dataISO);
+      // Verifica se a data é válida antes de formatar
+      if (isNaN(data.getTime())) return dataISO; 
+
+      return data.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    } catch (e) {
+      return dataISO; // Se der erro, mostra o original para não quebrar a tela
+    }
+  };
+
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>
@@ -49,7 +67,7 @@ const Auth = ({ config }) => {
         Faça o Presave de "{config?.titulo || 'Nova Música'}"
       </h1>
       <p style={styles.subheading}>
-        {config?.subtitulo || 'Mike Keslley'} • Disponível em {config?.dataLancamento || 'Breve'}
+        {config?.subtitulo || 'Mike Keslley'} • Disponível em {formatarData(config?.dataLancamento) || 'Breve'}
       </p>
       <p style={styles.description}>
         Conecte seu Spotify para salvar automaticamente no lançamento.
