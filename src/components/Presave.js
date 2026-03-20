@@ -85,13 +85,13 @@ const Presave = ({ token, config }) => {
     <div style={styles.container}>
       <h1 style={styles.heading}>Presave Confirmado!</h1>
       <h2 style={styles.subtitle}>
-        "{config?.titulo}" — {config?.subtitulo}
+        "{config?.titulo}" de {config?.subtitulo}
       </h2>
       
       <div style={styles.statusContainer}>
-        <StatusItem label="Álbum na Biblioteca" status={status.album} />
-        <StatusItem label="Playlist Salva" status={status.playlist} />
-        <StatusItem label="Artista Seguido" status={status.artist} />
+        <StatusItem label="𝐥𝐚𝐧𝐜𝐚𝐦𝐞𝐧𝐭𝐨 𝐬𝐚𝐥𝐯𝐨 𝐧𝐚 𝐛𝐢𝐛𝐥𝐢𝐨𝐭𝐞𝐜𝐚" status={status.album} />
+        <StatusItem label="𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐞𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐬𝐚𝐥𝐯𝐚" status={status.playlist} />
+        <StatusItem label="𝐦𝐞𝐥𝐡𝐨𝐫 𝐚𝐫𝐭𝐢𝐬𝐭𝐚 𝐝𝐨 𝐦𝐮𝐧𝐝𝐨 𝐬𝐞𝐠𝐮𝐢𝐝𝐨" status={status.artist} />
       </div>
 
       {allSuccess && (
@@ -124,7 +124,7 @@ const StatusItem = ({ label, status }) => (
   <div style={styles.statusItem}>
     <span style={{opacity: status === 'loading' ? 0.5 : 1}}>{label}</span>
     <span style={styles.statusIcon}>
-      {status === 'loading' ? '⏳' : status === 'success' ? '✅' : '❌'}
+      {status === 'loading' ? '⏳' : status === 'success' ? '>.<' : '❌'}
     </span>
   </div>
 );
@@ -185,7 +185,7 @@ const styles = {
     fontSize: '16px',
     fontWeight: 'bold',
     marginTop: '10px',
-    color: '#1DB954'
+    color: '#00ff59'
   },
   spotifyButton: {
     marginTop: '20px',
