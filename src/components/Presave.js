@@ -138,7 +138,7 @@ const styles = {
     padding: '40px 20px',
     fontFamily: 'Arial, sans-serif',
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #121212 0%, #1db95433 100%)', // Degradê sutil para o verde Spotify
+    background: 'linear-gradient(135deg, #121212 0%, #d9d7ff 100%)', // Degradê sutil para o verde Spotify
     color: '#fff'
   },
   heading: {
