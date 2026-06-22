@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/%PUBLIC_URL%/meteoricon.png" />
+    <!-- ==========================================================================
+         1. CAMPOS DE TÍTULO DA PÁGINA (SEO / ABAS DO NAVEGADOR)
+         Substitua as tags abaixo pelo Nome da Música e Nome do Artista
+         ========================================================================== -->
+    <title>Petals Fall - Mike Keslley</title>
+    
+    <!-- ==========================================================================
+         2. CÓDIGO DO META PIXEL (RASTREAMENTO DE TRÁFEGO)
+         Substitua o texto [INSIRA_O_ID_DO_PIXEL_AQUI] pelo número do seu Pixel (são 2 locais)
+         ========================================================================== -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=f.fbq||function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // ATENÇÃO: Cole o ID do seu Pixel na linha abaixo
+    fbq('init', '1315411133558709'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <!-- ATENÇÃO: Cole o ID do seu Pixel também na URL do noscript abaixo -->
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1315411133558709&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- ==========================================================================
+         FIM DO BLOCO DO PIXEL
+         ========================================================================== -->
+
+    <style>
+        /* Reset de Margens e Estilos Fundamentais */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: #0d0e12;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding: 24px 16px;
+        }
+
+        /* Efeito Avançado de Fundo: Capa Ampliada e Desfocada para Imersão Estética */
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            /* O link abaixo gera o fundo borrado automaticamente baseado na sua capa */
+            background-image: url('capa.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(50px) brightness(0.2);
+            z-index: -1;
+            transform: scale(1.15); /* Evita bordas brancas no blur */
+        }
+
+        /* Container Principal com Efeito Frosted Glass (Glassmorphic) */
+        .container {
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 28px;
+            padding: 32px 24px;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Capa do Single */
+        .cover-art {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+            margin-bottom: 28px;
+            object-fit: cover;
+            background-color: #15161e;
+        }
+
+        /* Tipografia da Faixa */
+        .track-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .artist-name {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 36px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        /* Botão Premium Otimizado para o Spotify */
+        .spotify-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #1DB954;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 20px rgba(29, 185, 84, 0.35);
+        }
+
+        .spotify-button:hover {
+            transform: scale(1.03);
+            background-color: #1ed760;
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.5);
+        }
+
+        .spotify-button:active {
+            transform: scale(0.97);
+        }
+
+        .spotify-left-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Ícone Oficial Vetorial SVG do Spotify */
+        .spotify-icon {
+            width: 26px;
+            height: 26px;
+            fill: #000000;
+        }
+
+        /* Tag de Chamada para Ação Textual */
+        .action-tag {
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            background: rgba(0, 0, 0, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+        }
+
+        /* Rodapé de Identificação */
+        .footer {
+            margin-top: 36px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Renderização do efeito imersivo de fundo -->
+    <div class="background-blur"></div>
+
+    <div class="container">
+        
+        <!-- ==========================================================================
+             3. URL DA ART DA CAPA
+             Substitua o [INSIRA_O_LINK_DA_ART_DA_CAPA_AQUI] pelo link direto da sua imagem
+             ========================================================================== -->
+        <img class="cover-art" src="capa.png" alt="Capa do single Petals Fall">
+
+        <!-- ==========================================================================
+             4. METADADOS DA MÚSICA (TEXTO VISÍVEL)
+             Substitua os campos de texto abaixo
+             ========================================================================== -->
+        <h1 class="track-title">Petals Fall</h1>
+        <p class="artist-name">Mike Keslley</p>
+
+        <!-- ==========================================================================
+             5. LINK FINAL DO SPOTIFY
+             Substitua o [INSIRA_O_LINK_DO_SPOTIFY_AQUI] pela URL track/album da música
+             ========================================================================== -->
+        <a href="https://open.spotify.com/intl-pt/track/1oVocc6q4LVvuRiXBu2BL7" id="spotify-conversion-trigger" class="spotify-button">
+            <div class="spotify-left-content">
+                <svg class="spotify-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.075-.336.135-.668.47-.743 3.856-.88 7.15-.505 9.822 1.13.295.178.387.563.205.858zm1.224-2.723c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.08-1.182-.413.125-.847-.107-.972-.52-.125-.413.107-.847.52-.972 3.67-1.114 8.243-.573 11.347 1.33.367.227.487.708.26 1.075zm.105-2.833C14.383 8.8 8.44 8.604 5.004 9.647c-.527.16-1.09-.14-1.25-.667-.16-.526.14-1.09.667-1.25 3.947-1.197 10.514-.97 14.595 1.453.473.282.625.893.342 1.366-.282.473-.893.625-1.366.342z"/>
+                </svg>
+                <span>Ouvir no Spotify</span>
+            </div>
+            <span class="action-tag">Tocar</span>
+        </a>
+
+        <!-- Rodapé Legal / Direitos -->
+        <div class="footer">
+            &copy; 2026 Mike Keslley.
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         6. SCRIPT DE CAPTURA DO SEGUNDO CLIQUE (MÁXIMA PRECISÃO)
+         Esse bloco garante o disparo do evento 'ViewContent' apenas se o botão for clicado
+         ========================================================================== -->
+    <script>
+        document.getElementById('spotify-conversion-trigger').addEventListener('click', function() {
+            console.log("1. Botão foi clicado!");
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Petals Fall',
+                    content_category: 'Music Release Marketing',
+                    content_type: 'music_track'
+                });
+                console.log("2. Sinal enviado para o Facebook com sucesso!");
+            } else {
+                console.error("ERRO: O código do Facebook (fbq) foi bloqueado ou não carregou no topo da página.");
+            }
+        });
+    </script>
+</body>
+</html>
