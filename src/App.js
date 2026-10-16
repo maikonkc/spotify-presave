@@ -37,10 +37,10 @@ const App = () => {
       } catch (err) {
         console.error("Usando fallback de segurança:", err);
         setConfig({
-          albumId: '0Aew4M8q8LSJ5xdZiwErDw',
-          playlistId: '5rnWjb5X62L6Jf2I4T9jfw',
+          albumId: '0a1NlGkNUF2sbdOT10fYm6',
+          playlistId: '31mwgVnYGAqtz4iQEiYoej',
           artistId: '22M8dOOCCGRbjgc26XVmdV',
-          titulo: 'A Noite N Acabou',
+          titulo: 'Nova Música',
           subtitulo: 'Mike Keslley',
           dataLancamento: '21/02/2026',
           mensagemSucesso: 'Tudo pronto! O álbum será salvo na sua biblioteca.'
